@@ -3,26 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
-
+    app:startDestination="@id/toDoListFragment">
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.korneliuszbarwinski.todolist.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
+        android:id="@+id/createToDoItemFragment"
+        android:name="com.korneliuszbarwinski.todolist.presentation.createtodoitem.CreateToDoItemFragment"
+        android:label="fragment_create_to_do_item"
+        tools:layout="@layout/fragment_create_to_do_item" >
+        <argument
+            android:name="todoitem"
+            app:argType="com.korneliuszbarwinski.todolist.domain.model.ToDoItem" />
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_createToDoItemFragment_to_toDoListFragment"
+            app:destination="@id/toDoListFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.korneliuszbarwinski.todolist.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
+        android:id="@+id/toDoListFragment"
+        android:name="com.korneliuszbarwinski.todolist.presentation.todolist.ToDoListFragment"
+        android:label="fragment_to_do_list"
+        tools:layout="@layout/fragment_to_do_list" >
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_toDoListFragment_to_createToDoItemFragment"
+            app:destination="@id/createToDoItemFragment" />
     </fragment>
 </navigation>
